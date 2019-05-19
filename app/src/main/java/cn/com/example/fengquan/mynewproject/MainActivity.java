@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Interpolator;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import cn.com.example.fengquan.baselibrary.dialog.AlertDialog;
 
 import cn.com.example.fengquan.baselibrary.http.HttpUtils;
 
+import cn.com.example.fengquan.framelibrary.DefaultNavigationBar;
 import cn.com.example.fengquan.framelibrary.base.BaseFrameActivity;
 import cn.com.example.fengquan.framelibrary.base.HttpCallBack;
 import cn.com.example.fengquan.mynewproject.handler.GlobalHandler;
@@ -62,7 +64,12 @@ public class MainActivity extends BaseFrameActivity implements GlobalHandler.Han
 
     @Override
     protected void initView() {
-
+        DefaultNavigationBar defaultNavigationBar = new DefaultNavigationBar.Builder(this, (ViewGroup) findViewById(R.id.viewgroup)).setTitle("caoimei").setRightClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"dianwol",Toast.LENGTH_SHORT).show();
+            }
+        }).builder();
     }
 
     @Override
@@ -72,6 +79,9 @@ public class MainActivity extends BaseFrameActivity implements GlobalHandler.Han
 
     @Override
     protected void setContentView() {
+
+
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
     }
 
