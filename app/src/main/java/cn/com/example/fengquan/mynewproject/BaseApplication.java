@@ -17,6 +17,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         111111
         222222
+        333333
         ExceptionCrashHandler.exceptionHandler.init(this);
         HttpUtils.init(new OkHttpEngine());
     }
